@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Container, Row, Col, FormGroup, FormLabel, FormControl, ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import MessageToast from 'src/MessageToast/MessageToast';
 import './RegisterPage.css'; 
 
@@ -17,7 +16,7 @@ export default function RegisterPage() {
     const [passwordStrength, setPasswordStrength] = useState(0);
     const [passwordFeedback, setPasswordFeedback] = useState('');
     const [passwordValidity, setPasswordValidity] = useState('');
-    const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     const [errorMessage, setErrorMessage] = useState("");
     const [errorShow, setErrorShow] = useState(false);
@@ -167,8 +166,12 @@ export default function RegisterPage() {
                                         onChange={handleChange}
                                         required
                                     />
-                                    <Button variant="outline-secondary" onClick={togglePasswordVisiblity} className="password-toggle-button">
-                                        {passwordVisible ? <BsEyeSlash /> : <BsEye />}
+                                    <Button
+                                        variant="outline-secondary"
+                                        onClick={togglePasswordVisiblity}
+                                        className="password-toggle-button"
+                                    >
+                                        {passwordVisible ? "👁️" : "🔒"}
                                     </Button>
                                 </div>
                                 <ProgressBar now={passwordStrength} variant={passwordStrength > 50 ? 'success' : 'warning'} />
@@ -177,7 +180,13 @@ export default function RegisterPage() {
 
                             <FormGroup className="mb-3">
                                 <FormLabel>Confirm Password</FormLabel>
-                                <FormControl type={passwordVisible ? "text" : "password"} name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+                                <FormControl
+                                    type={passwordVisible ? "text" : "password"}
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </FormGroup>
                             <Button variant="primary" type="submit">Submit</Button>
                         </Form>

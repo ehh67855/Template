@@ -4,6 +4,7 @@ import { jwtDecode } from 'jwt-decode'
 import Login from "../login/Login";
 import Messages from "../messages/Messages";
 import ProtectedMessages from "../messages/ProtectedMessages";
+import Home from "../home/Home"
 
 
 import { CustomJwtPayload } from "../entities/CustomJwtPayload";
@@ -11,7 +12,6 @@ import { CustomJwtPayload } from "../entities/CustomJwtPayload";
 import { getAuthToken, getLogin } from "../services/BackendService";
 import LayoutPage from "src/layout/LayoutPage";
 import LandingPage from "src/landingPage/LandingPage";
-import DashBoard from "src/dashboard/DashBoard";
 
 export function App() {
 
@@ -41,7 +41,7 @@ export function App() {
   return (
       <div>
         {!isAuthenticated && <LandingPage></LandingPage>}
-        {isAuthenticated && <DashBoard></DashBoard>}
+        {isAuthenticated && <Home></Home>}
       </div>
   );
 }

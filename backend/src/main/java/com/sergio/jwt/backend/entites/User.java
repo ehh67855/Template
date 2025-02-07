@@ -45,9 +45,5 @@ public class User {
 
     @Builder.Default
     private boolean isActive = false;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @Builder.Default
-    private List<Network> networks = new ArrayList<>();
     
 }
